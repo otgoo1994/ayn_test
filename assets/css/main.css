@@ -1,0 +1,208 @@
+﻿@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Montserrat", serif;
+  /* overflow-x: hidden; */
+}
+
+.poster {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.poster > .content {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(60%, -50%);
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.poster > .content > p {
+  font-size: 3vw;
+  font-weight: 700;
+  margin: 0;
+}
+
+.poster > .content > span {
+  font-size: 1vw;
+  font-weight: 500;
+}
+
+.poster > .content > button {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 10px;
+  margin-top: 20px;
+  width: 50%;
+  border-radius: 15px;
+  border: none;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.poster > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.special {
+  /* width: 100%; */
+  height: 100vh;
+  /* padding: 30px; */
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+}
+
+.special > .statistics {
+  margin-top: 50px;
+  width: 100%;
+  background-color: #089fe01f;
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.special > .statistics > .grids {
+  width: 50%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.special > .statistics > .grids > .grid-item {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-weight: 700;
+}
+
+.special > .statistics > .grids > .grid-item > .text {
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.special h1 {
+  margin-top: 50px;
+  margin-left: 10%;
+}
+
+.swiper {
+  width: 80%;
+  height: 50vh;
+  margin-top: 20px;
+}
+.swiper .swiper-slide {
+  cursor: pointer;
+  width: 80%;
+}
+
+.swiper .product-item {
+  border: 1px solid #d8d8d8;
+  height: 100%;
+  border-radius: 20px;
+  background-color: #d8d8d8;
+  position: relative;
+  overflow: hidden;
+}
+
+.swiper .product-item .number {
+  position: absolute;
+  font-weight: 700;
+  color: #fff;
+  font-size: 80px;
+  left: 15px;
+  z-index: 2;
+}
+
+.swiper .product-item > .dimmed {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.swiper .product-item .image {
+  width: auto;
+  height: 100%;
+}
+
+.swiper .product-item > .title {
+  position: absolute;
+  width: 100%;
+  height: 20%;
+  bottom: 0;
+  z-index: 3;
+  padding-left: 10%;
+  color: white;
+}
+
+.swiper .product-item > .title > .name {
+  margin: 0;
+}
+
+.swiper .product-item > .title > .price {
+  margin-top: 5px;
+  font-weight: 200;
+}
+
+@media screen and (max-width: 800px) {
+  .poster > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .poster > .content {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate(10%, -50%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .poster > .content > p {
+    font-size: 5vw;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .poster > .content > span {
+    font-size: 3vw;
+    font-weight: 500;
+  }
+
+  .special > .statistics {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 100%;
+    background-color: #089fe01f;
+    height: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .special > .statistics > .grids {
+    width: 50%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}

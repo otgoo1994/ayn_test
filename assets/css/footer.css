@@ -1,0 +1,72 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+.footer {
+  font-family: "Montserrat", serif;
+  background-color: #004f71;
+  width: 100%;
+  padding-bottom: 10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.footer > .footer-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  color: white;
+  height: 30vh;
+  border-bottom: 1px solid white;
+  width: 80%;
+  /* padding: 0 5vw; */
+}
+
+.footer > .copyright {
+  position: absolute;
+  color: white;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, calc(-5vh + 50%));
+}
+
+.footer > .footer-body > .footer-logo {
+  font-weight: 700;
+  height: 100%;
+  position: relative;
+}
+
+.footer > .footer-body > .footer-logo > .ayn {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  font-size: 2vw;
+}
+
+.footer > .footer-body > .links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer > .footer-body > .links > .body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.footer > .footer-body > .links > .body > .contact {
+  line-height: 200%;
+}
+
+.footer > .footer-body > .links > .body .title {
+  font-weight: 700;
+}
+
+.footer > .footer-body > .links > .body ul {
+  list-style: none;
+}
+
+.footer > .footer-body > .links > .body .address {
+  line-height: normal;
+}

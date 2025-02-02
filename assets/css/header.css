@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+header {
+  height: 10vh;
+  font-family: "Montserrat", serif;
+  color: white;
+  position: fixed;
+  width: 100%;
+  display: flex;
+  z-index: 10;
+}
+header.static {
+  color: #004f71;
+}
+
+header.static.top {
+  color: white;
+}
+
+header.top {
+  background-color: rgba(0, 0, 0, 0.5);
+  /* color: black; */
+}
+
+header > .menu {
+  display: flex;
+  /* background-color: #efefef; */
+  flex-direction: row;
+  width: 100%;
+  z-index: 20;
+  top: 0;
+  left: 0;
+}
+
+.menu > .logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: 700;
+  margin-left: 10px;
+  position: relative;
+}
+
+.menu > .list {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
+header.static > .menu > .list table {
+  color: #004f71;
+}
+
+header.static.top > .menu > .list table {
+  color: white;
+}
+
+.menu > .list table {
+  width: 70%;
+  color: white;
+}
+
+table td {
+  cursor: pointer;
+}
+
+.menu > .action {
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.menu > .action .user-menu.show {
+  display: block;
+}
+
+.menu > .action .user-menu {
+  position: absolute;
+  background-color: #ffffff;
+  color: #000000;
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+  width: 100px;
+  right: 0;
+  bottom: 0;
+  transform: translateY(120%);
+  border-radius: 10px;
+  display: none;
+}
+
+.user-menu li {
+  margin: 0;
+  padding: 0;
+}
+
+.menu > .action > .item {
+  cursor: pointer;
+  position: relative;
+}
+
+.menu > .action > .item > i {
+  font-size: 18px;
+}
+
+.menu > .action > .item > .cart-count {
+  height: 70%;
+  aspect-ratio: 1/1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translate(60%, -80%);
+  background-color: white;
+  color: black;
+  border-radius: 50%;
+  padding: 5px;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 800px) {
+  .menu > .list {
+    display: none;
+  }
+
+  .menu > .action {
+    width: 60%;
+    justify-content: end;
+  }
+}

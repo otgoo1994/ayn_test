@@ -1,0 +1,110 @@
+[
+  {
+    "id": 1,
+    "name": "Алтай таван богд",
+    "price": 370000,
+    "day": 2,
+    "night": 1,
+    "guide": {
+      "name": "John Wick",
+      "rate": 5,
+      "expierence": "",
+      "image": "https://img.freepik.com/free-psd/portrait-man-teenager-isolated_23-2151745771.jpg"
+    },
+    "images": [
+      "https://cdnp.cody.mn/spree/images/672456/large/Altai-Tavan-Bogd-Square-1.jpg",
+      "https://mpress.mn/storage/2021/06/220623-162709.png",
+      "https://www.gazarchin.mn/wp-content/uploads/2021/05/Altai-Tavan-Bogd-Complex.jpg"
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Хөвсгөл",
+    "price": 500000,
+    "day": 7,
+    "night": 6,
+    "guide": {
+      "name": "Jason Tatum",
+      "rate": 5,
+      "expierence": "",
+      "image": "https://img.freepik.com/free-psd/portrait-man-teenager-isolated_23-2151745771.jpg"
+    },
+    "images": [
+      "https://khovsgol.gov.mn/uploads/image/2022/06/1920x0/1655430728_19c9152385c0fc7da7d6.jpg",
+      "https://jigjids.wordpress.com/wp-content/uploads/2012/05/dalai.jpg?w=584",
+      "https://travel.new-value.mn/wp-content/uploads/2015/01/234834333_1682914858558333_1652774230776035318_n-920x520.jpg"
+    ]
+  },
+  {
+    "id": 3,
+    "name": "Хар зүрхний хөх нуур",
+    "price": 250000,
+    "day": 4,
+    "night": 3,
+    "guide": {
+      "name": "Lebron James",
+      "rate": 5,
+      "expierence": "",
+      "image": "https://img.freepik.com/free-psd/portrait-man-teenager-isolated_23-2151745771.jpg"
+    },
+    "images": [
+      "https://travel.khentii.gov.mn/uploads/img/2019/10/10/25fe5c12cd4304df3b158476908a13db.jpg",
+      "https://travel.khentii.gov.mn/uploads/img/2019/10/10/78bc70236808acae59eca50c2711412a.jpg",
+      "https://cdn.greensoft.mn/uploads/users/1977/images/mongol%20aylal/XW-EGEU76S-BFBAFMZ-ADJ4AU2-5S.jpg"
+    ]
+  },
+  {
+    "id": 4,
+    "name": "Тужийн нарс",
+    "price": 220000,
+    "day": 2,
+    "night": 1,
+    "guide": {
+      "name": "Stephen Curry",
+      "rate": 5,
+      "expierence": "",
+      "image": "https://img.freepik.com/free-psd/portrait-man-teenager-isolated_23-2151745771.jpg"
+    },
+    "images": [
+      "https://montsame.mn/files/65ae1fad7b035.jpeg",
+      "https://montsame.mn/files/5f5828ba475c9.jpeg",
+      "https://montsame.mn/files/5f5828b954666.jpeg"
+    ]
+  },
+  {
+    "id": 5,
+    "name": "Хамрын хийд",
+    "price": 500000,
+    "day": 7,
+    "night": 6,
+    "guide": {
+      "name": "Justin Bieber",
+      "rate": 5,
+      "expierence": "",
+      "image": "https://img.freepik.com/free-psd/portrait-man-teenager-isolated_23-2151745771.jpg"
+    },
+    "images": [
+      "https://resource4.sodonsolution.org/24tsag/photo/2013/11/5f3e27df5ed02f5f/9d84a06ae7d5257cbig.jpg",
+      "https://www.touristinfocenter.mn/Images/Cate/1/%D0%A5%D0%B0%D0%BC%D0%B0%D1%80%D1%8B%D0%BD%20%D1%85%D0%B8%D0%B9%D0%B4.jpg",
+      "https://montsame.mn/uploads/content/01fa35aad070b2dabbcc53d010f2347f.png"
+    ]
+  },
+  {
+    "id": 6,
+    "name": "Тэрэлж",
+    "price": 150000,
+    "day": 2,
+    "night": 1,
+    "guide": {
+      "name": "Gojo Satoru",
+      "rate": 5,
+      "expierence": "",
+      "image": "https://img.freepik.com/free-psd/portrait-man-teenager-isolated_23-2151745771.jpg"
+    },
+    "images": [
+      "https://zarig.mn/images/news/main/23.06/60f03806e24ac33f20110d8f779394b9.jpg",
+      "https://content.ikon.mn/news/2017/7/18/00937d_tumblr_m8lhzoQsMS1qmvijuo1_1280_x974.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/b/b6/Gorkhi-Terelj_National_Park.jpg"
+    ]
+  }
+]

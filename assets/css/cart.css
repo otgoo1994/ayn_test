@@ -1,0 +1,121 @@
+body {
+  margin: 0;
+  font-family: "Montserrat", serif;
+  /* overflow-x: hidden; */
+}
+
+.cart-container {
+  width: 70%;
+  display: flex;
+  gap: 20px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.cart-container > .main {
+  margin-top: 20vh;
+  margin-bottom: 10vh;
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cart-container > .main > .product {
+  gap: 30px;
+  display: flex;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.cart-container > .description {
+  width: 30%;
+  color: black;
+  margin-top: 20vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cart-container > .description table {
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+  padding: 20px 20px;
+  border-radius: 10px;
+}
+
+.cart-container > .description > button {
+  padding: 15px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.cart-container > .description > button:hover {
+  transform: scale(1.05);
+}
+
+.product > .fa-xmark {
+  font-size: 20px;
+  color: black;
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.product > .fa-xmark:hover {
+  transform: scale(1.1);
+}
+
+.product > img {
+  height: 100px;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.product .name {
+  display: flex;
+  width: 100%;
+  font-weight: 700;
+  color: #474747;
+  align-items: start;
+}
+
+.product .quantity > .count {
+  margin-left: 20px;
+}
+
+@media screen and (max-width: 800px) {
+  .cart-container {
+    flex-direction: column;
+    width: 90%;
+  }
+
+  .cart-container > .main {
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .cart-container > .main .product img {
+    height: 70px;
+  }
+
+  .product .name {
+    font-size: 12px;
+  }
+
+  .product .quantity {
+    font-size: 12px;
+  }
+
+  .cart-container .description {
+    margin-top: 0;
+    width: 100%;
+  }
+}
