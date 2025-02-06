@@ -1,0 +1,99 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+body {
+  font-family: "Montserrat", serif;
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+}
+.contact-container {
+  padding-top: 10vh;
+}
+
+.contact-container > .contact-body {
+  display: flex;
+  padding: 20px;
+}
+
+.contact-container > .contact-body > .address {
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* padding: 0px 50px; */
+  gap: 20px;
+}
+
+.address i {
+  font-size: 40px;
+  color: #004f71;
+}
+
+.address > div {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-container > .contact-body > .inputs {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 50px;
+  margin-bottom: 100px;
+  gap: 20px;
+}
+
+.inputs > input,
+.inputs > textarea {
+  padding: 20px;
+  font-size: 15px;
+  border: none;
+  background-color: #ededed;
+  padding-left: 5%;
+  text-align: left;
+  outline: transparent;
+  width: 100%;
+  transition: border-color 0.2 ease;
+}
+
+.inputs > button {
+  padding: 20px;
+  width: 40%;
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+  background-color: #004f71;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+@media screen and (max-width: 800px) {
+  .contact-container > .contact-body > .address {
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+  }
+
+  .contact-container > .contact-body,
+  .contact-container > .contact-body > .inputs {
+    flex-direction: column;
+  }
+
+  .contact-container > .contact-body > .inputs {
+    flex-direction: column;
+    width: 100%;
+    padding: 0;
+  }
+
+  .inputs > input,
+  .inputs > textarea {
+    width: 100%;
+  }
+}

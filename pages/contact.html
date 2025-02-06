@@ -1,5 +1,6 @@
 <html lang="en">
   <head>
+    <!-- AIzaSyDct9XN6ee3OzFWpji9vNTnrTA82w5F8II -->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,11 +21,81 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script type="module" src="../assets/js/index.js"></script>
     <script type="module" src="../assets/js/contact.js"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDct9XN6ee3OzFWpji9vNTnrTA82w5F8II&callback=initMap"
+      async
+      defer
+    ></script>
+    <script>
+      function initMap() {
+        let loading = null;
+        "loading" === document.readyState
+          ? (loading = setInterval(() => {
+              document.readyState === "complete"
+                ? (clearInterval(loading), init())
+                : null;
+            }, 100))
+          : init();
+
+        function init() {
+          var options = {
+            center: { lat: 47.920324434937626, lng: 106.91783783785588 }, // Ulaanbaatar square
+            zoom: 16,
+          };
+
+          // Create new map
+          var map = new google.maps.Map(
+            document.getElementById("map"),
+            options
+          );
+
+          var marker = new google.maps.Marker({
+            position: { lat: 47.920324434937626, lng: 106.91783783785588 }, // Location of the marker
+            map: map, // Add marker to the map
+            title: "Ulaanbaatar, Sukhbaatar square!", // Title that shows when you hover over the marker
+          });
+        }
+      }
+    </script>
     <title>АЯН - Холбоо барих</title>
   </head>
   <body>
     <header-card data-static="true"></header-card>
-    <section class="contact-container"></section>
+    <section class="contact-container">
+      <div id="map"></div>
+      <div class="contact-body">
+        <div class="address">
+          <div>
+            <i class="fa-solid fa-location-dot"></i>
+            <p>
+              Улаанбаатар, БЗД, 1-р хороо,<br />
+              Seoul Buisiness Center, 711 тоот
+            </p>
+          </div>
+          <div>
+            <i class="fa-solid fa-phone"></i>
+            <p>70001160, 80202050</p>
+          </div>
+          <div>
+            <i class="fa-solid fa-envelope"></i>
+            <p>info@ayn.mn | ayn.mn@gmail.com</p>
+          </div>
+        </div>
+        <div class="inputs">
+          <h3>Хүсэлт илгээх</h3>
+          <input type="text" id="lastname" placeholder="Овог нэр" />
+          <input type="text" id="email" placeholder="Цахим хаяг" />
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            cols="50"
+            placeholder="Мессежээ үлдээнэ үү..."
+          ></textarea>
+          <button>Илгээх</button>
+        </div>
+      </div>
+    </section>
     <footer-card></footer-card>
   </body>
 </html>
