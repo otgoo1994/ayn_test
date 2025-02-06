@@ -1,3 +1,4 @@
+import { Notyf } from "https://cdn.jsdelivr.net/npm/notyf/notyf.es.js";
 const el = {
   loginForm: null,
   registerForm: null,
@@ -16,7 +17,9 @@ const selector = {
   rePassword: "#re-password",
 };
 
-const params = {};
+const params = {
+  notyf: null,
+};
 
 const method = {};
 
@@ -28,7 +31,7 @@ const handler = {
 
     let users = localStorage.getItem("users");
     if (!users) {
-      alert("Хэрэглэгчийн мэдээлэл олдсонгүй");
+      params.notyf.error("Хэрэглэгчийн мэдээлэл олдсонгүй!");
       return;
     }
 
@@ -38,12 +41,12 @@ const handler = {
     );
 
     if (!logged) {
-      alert("Хэрэглэгчийн мэдээлэл олдсонгүй");
+      params.notyf.error("Хэрэглэгчийн мэдээлэл олдсонгүй!");
       return;
     }
 
     localStorage.setItem("logged-user", JSON.stringify(logged));
-    alert("Амжилттай нэвтэрлээ");
+    params.notyf.success("Амжилттай нэвтэрлээ!");
     window.location = "/pages/index.html";
   },
   registerSubmit: (e) => {
@@ -55,7 +58,7 @@ const handler = {
     const repassword = el.rePassword.value;
 
     if (password != repassword) {
-      alert("Нууц үг таарсангүй");
+      params.notyf.error("Нууц үг таарсангүй!");
       return;
     }
 
@@ -74,13 +77,14 @@ const handler = {
     users = JSON.parse(users);
     const check = users.find((user) => user.username === username);
     if (check) {
-      alert("Бүртгэлтэй утасны дугаар");
+      params.notyf.error("Бүртгэлтэй утасны дугаар!");
+      return;
     }
 
     users.push(param);
 
     localStorage.setItem("users", JSON.stringify(users));
-    alert("Амжилттай бүртгэгдлээ");
+    params.notyf.success("Амжилттай бүртгэгдлээ!");
     window.location = "/pages/login.html";
   },
 };
@@ -92,6 +96,12 @@ const setProperty = async () => {
   el.name = document.querySelector(selector.name);
   el.password = document.querySelector(selector.password);
   el.rePassword = document.querySelector(selector.rePassword);
+  params.notyf = new Notyf({
+    position: {
+      x: "right",
+      y: "top",
+    },
+  });
 };
 
 const bind = () => {

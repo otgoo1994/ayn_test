@@ -7,7 +7,6 @@
     "night": 1,
     "guide": {
       "name": "John Wick",
-      "rate": 5,
       "expierence": "",
       "image": "https://img.freepik.com/free-psd/portrait-man-teenager-isolated_23-2151745771.jpg"
     },
@@ -25,7 +24,6 @@
     "night": 6,
     "guide": {
       "name": "Jason Tatum",
-      "rate": 5,
       "expierence": "",
       "image": "https://img.freepik.com/free-psd/portrait-man-teenager-isolated_23-2151745771.jpg"
     },
@@ -43,7 +41,6 @@
     "night": 3,
     "guide": {
       "name": "Lebron James",
-      "rate": 5,
       "expierence": "",
       "image": "https://img.freepik.com/free-psd/portrait-man-teenager-isolated_23-2151745771.jpg"
     },
@@ -61,7 +58,6 @@
     "night": 1,
     "guide": {
       "name": "Stephen Curry",
-      "rate": 5,
       "expierence": "",
       "image": "https://img.freepik.com/free-psd/portrait-man-teenager-isolated_23-2151745771.jpg"
     },
@@ -79,7 +75,6 @@
     "night": 6,
     "guide": {
       "name": "Justin Bieber",
-      "rate": 5,
       "expierence": "",
       "image": "https://img.freepik.com/free-psd/portrait-man-teenager-isolated_23-2151745771.jpg"
     },
@@ -97,7 +92,6 @@
     "night": 1,
     "guide": {
       "name": "Gojo Satoru",
-      "rate": 5,
       "expierence": "",
       "image": "https://img.freepik.com/free-psd/portrait-man-teenager-isolated_23-2151745771.jpg"
     },

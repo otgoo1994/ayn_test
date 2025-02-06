@@ -1,3 +1,4 @@
+import { Notyf } from "https://cdn.jsdelivr.net/npm/notyf/notyf.es.js";
 export default class HeaderCard extends HTMLElement {
   constructor() {
     super();
@@ -72,6 +73,14 @@ export default class HeaderCard extends HTMLElement {
         });
         param.count = count;
         elm.cartCount.innerHTML = param.count;
+
+        const notyf = new Notyf({
+          position: {
+            x: "right",
+            y: "top",
+          },
+        });
+        notyf.success("Амжилттай сагсаллаа!");
       },
       clickOnLogo: () => {
         window.location = "/pages/index.html";
@@ -100,7 +109,6 @@ export default class HeaderCard extends HTMLElement {
 
     this.shadowRoot.innerHTML = `
     <link rel="stylesheet" href="../assets/css/header.css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet" />
     <header ${this.dataset.static && 'class="static"'}>
       <div class="menu">
         <div class="logo">◉ Аян</div>
@@ -111,7 +119,7 @@ export default class HeaderCard extends HTMLElement {
               <td class="link"><p class="title">АЯЛАЛ</p></td>
               <td class="link"><p class="title">ЗӨВЛӨГӨӨ</p></td>
               <td class="link"><p class="title">БИДНИЙ ТУХАЙ</p></td>
-              <td class="link"><p class="title">ХОЛБОО БАРИХ</p></td>
+              <td class="link" to="/pages/contact.html"><p class="title">ХОЛБОО БАРИХ</p></td>
             </tr>
           </table>
         </div>

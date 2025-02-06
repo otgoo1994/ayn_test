@@ -124,6 +124,11 @@ body {
   color: white;
 }
 
+.trip-container > .sub > .buttons > button.cart > a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
 .trip-container > .main .swiper-slide {
   width: 100%;
   aspect-ratio: 1980/1080;
@@ -194,6 +199,15 @@ body {
   background-color: black;
   height: 1px;
   margin-top: 40px;
+}
+
+.fa-solid.fa-star {
+  color: grey;
+}
+
+.fa-solid.fa-star.active,
+.fa-solid.fa-star:hover {
+  color: gold;
 }
 
 @media screen and (max-width: 800px) {

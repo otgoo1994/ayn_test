@@ -9,6 +9,11 @@
       href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
     />
     <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/notyf@3/notyf.min.css"
+    />
+
+    <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       rel="stylesheet"
     />
@@ -25,11 +30,11 @@
         <div class="explain">
           <p id="trip-name">Алтай таван богд</p>
           <div class="rating">
-            <i class="fa-solid fa-star" style="color: #ffd43b"></i>
-            <i class="fa-solid fa-star" style="color: #ffd43b"></i>
-            <i class="fa-solid fa-star" style="color: #ffd43b"></i>
-            <i class="fa-solid fa-star" style="color: #ffd43b"></i>
-            <i class="fa-solid fa-star" style="color: #ffd43b"></i>
+            <i class="fa-solid fa-star" data-value="1"></i>
+            <i class="fa-solid fa-star" data-value="2"></i>
+            <i class="fa-solid fa-star" data-value="3"></i>
+            <i class="fa-solid fa-star" data-value="4"></i>
+            <i class="fa-solid fa-star" data-value="5"></i>
           </div>
           <div class="price" id="trip-price">
             4 шөнө 3 өдөр <span>500000k</span>
@@ -59,7 +64,9 @@
         <div class="about"></div>
         <div class="buttons">
           <button class="order" id="submit">Захиалах</button>
-          <button class="cart">Сагс-руу очих</button>
+          <button class="cart">
+            <a href="/pages/cart.html">Сагс-руу очих</a>
+          </button>
           <button>Үнэлгээ өгөх</button>
         </div>
       </div>

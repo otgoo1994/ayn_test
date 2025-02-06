@@ -8,6 +8,8 @@ const el = {
   tripName: null,
   tripPrice: null,
   days: null,
+  tripReviews: null,
+  agenReviews: null,
 };
 
 const selector = {
@@ -18,11 +20,17 @@ const selector = {
   tripName: "#trip-name",
   tripPrice: "#trip-price",
   days: ".days",
+  tripReviews: ".main .fa-solid.fa-star",
+  agenReviews: ".sub .fa-solid.fa-star",
 };
 
 const params = {
   productId: null,
   selectedTrip: null,
+  tripReview: 0,
+  agentReview: 0,
+  agentReviewList: null,
+  tripReviewList: null,
 };
 
 const method = {
@@ -48,6 +56,36 @@ const method = {
     } catch (error) {
       console.error("Error fetching data:", error);
     }
+  },
+  getRateValue: () => {
+    let html = "";
+    if (!params.agentReviewList) {
+      for (let i = 0; i < 5; i++) {
+        html += '<i class="fa-solid fa-star" data-value="' + (i + 1) + '"></i>';
+      }
+      return html;
+    }
+    const exist = params.agentReviewList.find(
+      (element) => element.name == params.selectedTrip.guide.name
+    );
+
+    if (!exist) {
+      for (let i = 0; i < 5; i++) {
+        html += '<i class="fa-solid fa-star" data-value="' + (i + 1) + '"></i>';
+      }
+      return html;
+    }
+
+    for (let i = 0; i < 5; i++) {
+      html +=
+        '<i class="fa-solid fa-star ' +
+        (i + 1 <= exist.rate ? "active" : "") +
+        '" data-value="' +
+        (i + 1) +
+        '"></i>';
+    }
+
+    return html;
   },
   initSwiper: async () => {
     const wrapper = document.createElement("div");
@@ -81,11 +119,7 @@ const method = {
         <div class="description">
         ${params.selectedTrip.guide.name}
           <div class="rating">
-            <i class="fa-solid fa-star" style="color: #ffd43b"></i>
-            <i class="fa-solid fa-star" style="color: #ffd43b"></i>
-            <i class="fa-solid fa-star" style="color: #ffd43b"></i>
-            <i class="fa-solid fa-star" style="color: #ffd43b"></i>
-            <i class="fa-solid fa-star" style="color: #ffd43b"></i>
+          ${method.getRateValue("agent")}
           </div>
         </div>
       </div>
@@ -104,6 +138,19 @@ const method = {
   sendCustomEvent: () => {
     const event = new CustomEvent("cartCustomEvent");
     window.dispatchEvent(event);
+  },
+  initReviewToTrip: () => {
+    if (!params.tripReviewList) return;
+    const exist = params.tripReviewList.find(
+      (element) => element.id == params.selectedTrip.id
+    );
+    if (!exist) return;
+
+    el.tripReviews.forEach((element, index) => {
+      if (index + 1 <= exist.rate) {
+        element.classList.add("active");
+      }
+    });
   },
 };
 
@@ -147,7 +194,6 @@ const handler = {
     if (!element) return;
 
     const isOpen = element.getAttribute("isopen");
-    console.log(isOpen);
 
     if (isOpen == "false") {
       element.classList.add("show");
@@ -155,6 +201,104 @@ const handler = {
     } else {
       element.classList.remove("show");
       element.setAttribute("isopen", false);
+    }
+  },
+  clickOnStar: (e, type) => {
+    const value = e.currentTarget.getAttribute("data-value");
+
+    if (type == "trip") {
+      params.tripReview = value;
+
+      if (params.tripReviewList) {
+        const exist = params.tripReviewList.find(
+          (element) => element.id == params.selectedTrip.id
+        );
+        if (!exist) {
+          params.tripReviewList.push({
+            id: params.selectedTrip.id,
+            rate: value,
+          });
+        } else {
+          params.tripReviewList.forEach((element) => {
+            if (element.id == params.selectedTrip.id) {
+              element.rate = value;
+            }
+          });
+        }
+      } else {
+        params.tripReviewList = [
+          {
+            id: params.selectedTrip.id,
+            rate: value,
+          },
+        ];
+      }
+      localStorage.setItem(
+        "trip-reviews",
+        JSON.stringify(params.tripReviewList)
+      );
+      return;
+    }
+
+    params.agentReview = value;
+    if (params.agentReviewList) {
+      const exist = params.agentReviewList.find(
+        (element) => element.name == params.selectedTrip.guide.name
+      );
+      if (!exist) {
+        params.agentReviewList.push({
+          name: params.selectedTrip.guide.name,
+          rate: value,
+        });
+      } else {
+        params.agentReviewList.forEach((element) => {
+          if (element.name == params.selectedTrip.guide.name) {
+            element.rate = value;
+          }
+        });
+      }
+    } else {
+      params.agentReviewList = [
+        {
+          name: params.selectedTrip.guide.name,
+          rate: value,
+        },
+      ];
+    }
+
+    localStorage.setItem(
+      "agent-reviews",
+      JSON.stringify(params.agentReviewList)
+    );
+  },
+  mouseEnterOnStar: (e, type) => {
+    const value = e.currentTarget.getAttribute("data-value");
+
+    if (type == "trip") {
+      el.tripReviews.forEach((s) => s.classList.remove("active"));
+      for (let i = 0; i < value; i++) {
+        el.tripReviews[i].classList.add("active");
+      }
+      return;
+    }
+
+    el.agenReviews.forEach((s) => s.classList.remove("active"));
+    for (let i = 0; i < value; i++) {
+      el.agenReviews[i].classList.add("active");
+    }
+  },
+  mouseOutFromStar: (e, type) => {
+    if (type == "trip") {
+      el.tripReviews.forEach((s) => s.classList.remove("active"));
+      for (let i = 0; i < params.tripReview; i++) {
+        el.tripReviews[i].classList.add("active");
+      }
+      return;
+    }
+
+    el.agenReviews.forEach((s) => s.classList.remove("active"));
+    for (let i = 0; i < params.agentReview; i++) {
+      el.agenReviews[i].classList.add("active");
     }
   },
 };
@@ -168,6 +312,14 @@ const setProperty = async () => {
     return;
   }
 
+  params.agentReviewList = localStorage.getItem("agent-reviews")
+    ? JSON.parse(localStorage.getItem("agent-reviews"))
+    : null;
+
+  params.tripReviewList = localStorage.getItem("trip-reviews")
+    ? JSON.parse(localStorage.getItem("trip-reviews"))
+    : null;
+
   params.productId = param.get("id");
   el.swiper = document.querySelectorAll(selector.swiper);
   el.cartSwiper = document.querySelector(selector.cartSwiper);
@@ -176,11 +328,14 @@ const setProperty = async () => {
   el.tripName = document.querySelector(selector.tripName);
   el.tripPrice = document.querySelector(selector.tripPrice);
   el.days = document.querySelectorAll(selector.days);
-
   await method.getTrip();
   await method.initSwiper();
+  await method.initSubContent();
 
-  method.initSubContent();
+  el.tripReviews = document.querySelectorAll(selector.tripReviews);
+  el.agenReviews = document.querySelectorAll(selector.agenReviews);
+
+  method.initReviewToTrip();
 };
 
 const bind = () => {
@@ -191,6 +346,26 @@ const bind = () => {
   el.submit.addEventListener("click", handler.submit);
   el.days.forEach((element) => {
     element.addEventListener("click", handler.clickOnDays);
+  });
+
+  el.tripReviews.forEach((element) => {
+    element.addEventListener("click", (e) => handler.clickOnStar(e, "trip"));
+    element.addEventListener("mouseenter", (e) =>
+      handler.mouseEnterOnStar(e, "trip")
+    );
+    element.addEventListener("mouseout", (e) =>
+      handler.mouseOutFromStar(e, "trip")
+    );
+  });
+
+  el.agenReviews.forEach((element) => {
+    element.addEventListener("click", (e) => handler.clickOnStar(e, "agent"));
+    element.addEventListener("mouseenter", (e) =>
+      handler.mouseEnterOnStar(e, "agent")
+    );
+    element.addEventListener("mouseout", (e) =>
+      handler.mouseOutFromStar(e, "agent")
+    );
   });
 };
 
